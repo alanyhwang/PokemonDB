@@ -9,7 +9,7 @@ evolutions, and regional differences.
 It is designed for players and enthusiasts who want to explore detailed information about Pokémon, their interactions, 
 and their evolution paths across different game versions and regions.
 
-## Milestone 5 (TODO)
+## Milestone 5
 - Project Showcase
 
 ## Milestone 4
