@@ -2,7 +2,7 @@
 export async function checkDbConnection() {
     const statusElem = document.getElementById('dbStatus');
 
-    const response = await fetch('/check-db-connection', {
+    const response = await fetch('/health/db', {
         method: "GET"
     });
 
@@ -22,7 +22,7 @@ export async function checkDbConnection() {
 export async function fetchAndPopulateTypeName(elementId = 'insertTypeName') {
     const selectElement  = document.getElementById(elementId);
 
-    const response = await fetch('/typename', {
+    const response = await fetch('/pokemon/types', {
         method: 'GET'
     });
 

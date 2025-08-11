@@ -26,7 +26,7 @@ async function filterTableByAttributes () {
 
     const queryParams = new URLSearchParams({ attributes: parameters.join(',') });
 
-    const response = await fetch(`/typeEffect?${queryParams.toString()}`, {
+    const response = await fetch(`/pokemon/types/effectiveness?${queryParams.toString()}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

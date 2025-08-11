@@ -1,7 +1,7 @@
 import {checkDbConnection, fetchAndDisplayTable} from './commonScripts.js';
 
 async function fetchAndDisplayTrainers() {
-    await fetchAndDisplayTable('gymTable', '/gym');
+    await fetchAndDisplayTable('gymTable', '/gyms');
 }
 
 async function fetchAverageWinnings() {
@@ -10,7 +10,7 @@ async function fetchAverageWinnings() {
     const queryParams = new URLSearchParams({ attributes: operator });
 
     try {
-        const response = await fetch(`/calculateAvgWinningAggregate?${queryParams.toString()}`,
+        const response = await fetch(`/stats/average-winning?${queryParams.toString()}`,
             { method: 'GET' });
         const data = await response.json();
 

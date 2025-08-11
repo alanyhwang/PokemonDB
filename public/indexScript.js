@@ -11,7 +11,7 @@ async function fetchAndDisplayPokemon() {
 async function fetchAndPopulateMoveID() {
     const selectElement  = document.getElementById('insertMoveID');
 
-    const response = await fetch('/moveid', {
+    const response = await fetch('/moves/ids', {
         method: 'GET'
     });
 
@@ -37,7 +37,7 @@ async function fetchAndPopulateMoveID() {
 async function fetchAndPopulateAbilityID() {
     const selectElement  = document.getElementById('insertAbilityID');
 
-    const response = await fetch('/abilityid', {
+    const response = await fetch('/pokemon/abilities', {
         method: 'GET'
     });
 
@@ -63,7 +63,7 @@ async function fetchAndPopulateAbilityID() {
 async function fetchAndPopulatePokemonID() {
     const selectElement  = document.getElementById('insertPokemonID');
 
-    const response = await fetch('/pokemonid', {
+    const response = await fetch('/pokemon/ids', {
         method: 'GET'
     });
 
@@ -96,7 +96,7 @@ async function insertPokemon(event) {
     const abilityIDValue = document.getElementById('insertAbilityID').value;
     const moveIDValue = document.getElementById('insertMoveID').value;
 
-    const response = await fetch('/insert-pokemon', {
+    const response = await fetch('/pokemon', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -128,14 +128,11 @@ async function deletePokemon(event) {
 
     const idValue = document.getElementById('insertPokemonID').value;
 
-    const response = await fetch('/delete-pokemon', {
-        method: 'POST',
+    const response = await fetch(`/pokemon/${idValue}`, {
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            pokemonid: idValue
-        })
+        }
     });
 
     const responseData = await response.json();

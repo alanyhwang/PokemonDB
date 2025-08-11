@@ -8,7 +8,7 @@ async function fetchAndDisplayItems() {
 async function fetchAndPopulateItemType(elementId) {
     const selectElement  = document.getElementById(elementId);
 
-    const response = await fetch('/itemtype', {
+    const response = await fetch('/items/types', {
         method: 'GET'
     });
 
@@ -36,7 +36,7 @@ async function fetchAndPopulateItemTypes() {
 async function fetchAndDisplayItemCountByType(event) {
     event.preventDefault();
 
-    const response = await fetch('/item-count', { method: 'GET' });
+    const response = await fetch('/items/count-by-type', { method: 'GET' });
     const responseData = await response.json();
 
     const tableElement = document.getElementById('itemCountsTable');
@@ -95,7 +95,7 @@ async function fetchAndDisplayPokemartByTypeAndMin(event) {
     const selectedType = document.getElementById('itemtypes2').value;
     const minQuantity = document.getElementById('minQuantity').value;
 
-    let url = '/pokemartbytypeandmin';
+    let url = '/pokemart/filter';
 
     if (selectedType && selectedType !== "0") {
         url += `?itemType=${encodeURIComponent(selectedType)}`;
